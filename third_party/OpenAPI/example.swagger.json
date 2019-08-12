@@ -14,6 +14,57 @@
     "application/json"
   ],
   "paths": {
+    "/api/v1/user/{user.id}": {
+      "patch": {
+        "summary": "Update a user",
+        "description": "Change properties of a user.",
+        "operationId": "UserService_UpdateUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/exampleUser"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "user.id",
+            "description": "Id uniquely identifies a user. Output only.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/exampleUser"
+            }
+          },
+          {
+            "name": "updateMask",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "tags": [
+          "Users"
+        ]
+      }
+    },
     "/api/v1/users": {
       "get": {
         "summary": "List users",
@@ -128,17 +179,23 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "description": "Id uniquely identifies a user. Output only.",
+          "readOnly": true
         },
         "email": {
           "type": "string"
         },
         "createTime": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Output only.",
+          "readOnly": true
         },
         "metadata": {
-          "type": "object"
+          "type": "object",
+          "description": "Output only.",
+          "readOnly": true
         }
       }
     },

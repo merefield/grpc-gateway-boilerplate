@@ -4,3 +4,4 @@ build:
     - proto
     - third_party/grpc-gateway
     - third_party/googleapis
+    - third_party/go-proto-validators

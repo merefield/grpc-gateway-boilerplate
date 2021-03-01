@@ -1,7 +1,7 @@
 package mock
 
 import (
-	"user-api/internal/model"
+	"github.com/merefield/grpc-user-api/internal/model"
 )
 
 // JWT mock

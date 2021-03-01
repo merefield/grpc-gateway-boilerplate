@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"user-api/pkg/config"
+	"github.com/merefield/grpc-user-api/pkg/config"
 )
 
 func TestLoad(t *testing.T) {

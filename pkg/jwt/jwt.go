@@ -3,9 +3,8 @@ package jwt
 import (
 	"fmt"
 	"time"
-  "github.com/satori/go.uuid"
 
-	"user-api/internal/model"
+	"github.com/merefield/grpc-user-api/internal/model"
 
 	jwt "github.com/dgrijalva/jwt-go"
 )

@@ -1,9 +1,10 @@
 package mw
 
 import (
-  "net/http"
-  "context"
-  "github.com/go-pg/pg/urlvalues"
+	"context"
+	"net/http"
+
+	"github.com/go-pg/pg/urlvalues"
 )
 
 func WithURLQuery(base http.Handler) http.Handler {

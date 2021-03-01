@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+package role;
+
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "github.com/merefield/grpc-user-api/proto/role";
+
+// UserRole service provides methods to manage user roles
+//
+// ### Custom roles
+// The OpenStorage SDK server is equipped to handle customized authorization
+// roles. Using this model it allows administrators to customize the permission
+// rules of a role to be used by a user.
+//
+// Creating a custom role, or an SdkRole, is done by setting up a set of allowed _rules_,
+// or SdkRules, directives which are sequentially scanned until a match is found. Rules
+// are created using the names of OpenStorage SDK services and APIs as follows:
+//
+// The message SdkRules has the following properties:
+//
+// * Services: Is the gRPC service name in `OpenStorage<service name>` in lowercase
+// * Apis: Is the API name in the service in lowercase
+//
+// Please see SdkRule for more information on the format.
+service ResonateRole {
+
+  // Create a role for users in the system
+  // rpc Create(RoleCreateRequest)
+  //   returns (RoleCreateResponse){
+  //     option(google.api.http) = {
+  //       post: "/v1/roles"
+  //       body: "*"
+  //     };
+  //   }
+
+  // // List all roles
+  // rpc Enumerate(RoleEnumerateRequest)
+  //   returns (RoleEnumerateResponse){
+  //     option(google.api.http) = {
+  //       get: "/v1/roles"
+  //     };
+  //   }
+
+  // // Get information about a role
+  // rpc Inspect(RoleInspectRequest)
+  //   returns (RoleInspectResponse){
+  //     option(google.api.http) = {
+  //       get: "/v1/roles/inspect/{name}"
+  //     };
+  //   }
+
+  // // Delete an existing role
+  // rpc Delete(RoleDeleteRequest)
+  //   returns (RoleDeleteResponse){
+  //     option(google.api.http) = {
+  //       delete: "/v1/roles/{name}"
+  //     };
+  //   }
+
+  // // Update an existing role
+  // rpc Update(RoleUpdateRequest)
+  //   returns (RoleUpdateResponse){
+  //     option(google.api.http) = {
+  //       put: "/v1/roles"
+  //       body: "*"
+  //     };
+  //   }
+}

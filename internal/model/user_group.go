@@ -11,7 +11,7 @@ import (
 	"github.com/go-pg/pg/orm"
 	"github.com/twitchtv/twirp"
 
-	pb "github.com/merefield/grpc-user-api/proto"
+	pb "github.com/merefield/grpc-user-api/proto/user"
 	// trackpb "user-api/rpc/track"
 	//tagpb "github.com/merefield/grpc-user-api/proto/api"
 

@@ -1,7 +1,7 @@
 package model
 
 import (
-	pb "github.com/merefield/grpc-user-api/proto"
+	pb "github.com/merefield/grpc-user-api/proto/user"
 
 	"github.com/go-pg/pg"
 	"github.com/twitchtv/twirp"

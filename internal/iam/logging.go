@@ -4,9 +4,9 @@ import (
 	"context"
 	"time"
 
-	"user-api/internal/model"
+	"github.com/merefield/grpc-user-api/internal/model"
 
-	"user-api/rpc/iam"
+	"github.com/merefield/grpc-user-api/rpc/iam"
 )
 
 var svcName = "iam"

@@ -3,7 +3,7 @@ package pgsql
 import (
 	"strings"
 
-	"user-api/internal/model"
+	"github.com/merefield/grpc-user-api/internal/model"
 
 	"github.com/go-pg/pg/orm"
 )

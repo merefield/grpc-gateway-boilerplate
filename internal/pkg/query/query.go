@@ -3,7 +3,7 @@ package query
 import (
 	"fmt"
 
-	"user-api/internal/model"
+	"github.com/merefield/grpc-user-api/internal/model"
 )
 
 // ForTenant returns query for filtering rows by tenant_id

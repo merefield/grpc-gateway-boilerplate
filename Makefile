@@ -1,10 +1,11 @@
 generate:
-	buf generate --path ./proto/common.proto
-	buf generate --path ./proto/tag.proto
-	buf generate --path ./proto/address.proto
-	buf generate --path ./proto/streetaddress.proto
-	buf generate --path ./proto/user.proto
-	buf generate --path ./proto/usergroup.proto
+	buf generate --path ./proto/iam/iam.proto
+	buf generate --path ./proto/user/common.proto
+	buf generate --path ./proto/user/tag.proto
+	buf generate --path ./proto/user/address.proto
+	buf generate --path ./proto/user/streetaddress.proto
+	buf generate --path ./proto/user/user.proto
+	buf generate --path ./proto/user/usergroup.proto
 	# Generate static assets for OpenAPI UI
 	statik -m -f -src third_party/OpenAPI/
 
@@ -14,5 +15,6 @@ install:
 		google.golang.org/grpc/cmd/protoc-gen-go-grpc \
 		github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway \
 		github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2 \
+		github.com/mwitkow/go-proto-validators \
 		github.com/rakyll/statik \
 		github.com/bufbuild/buf/cmd/buf

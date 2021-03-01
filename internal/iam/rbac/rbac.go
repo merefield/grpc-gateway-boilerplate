@@ -3,8 +3,7 @@ package rbac
 import (
 	"context"
 
-	"github.com/satori/go.uuid"
-	"user-api/internal/model"
+	"github.com/merefield/grpc-user-api/internal/model"
 )
 
 // Service is RBAC application service

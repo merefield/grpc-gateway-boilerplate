@@ -1,10 +1,11 @@
 package config
 
 import (
-	"time"
 	"fmt"
 	"io/ioutil"
+	"time"
 
+	"github.com/libopenstorage/openstorage/pkg/auth"
 	yaml "gopkg.in/yaml.v2"
 )
 
@@ -25,17 +26,18 @@ func Load(path string) (*Configuration, error) {
 
 // Configuration holds application configuration data
 type Configuration struct {
-	Server  Server      `yaml:"server,omitempty"`
-	DB      DatabaseEnv `yaml:"database,omitempty"`
-	JWT     JWT         `yaml:"jwt,omitempty"`
-	App     Application `yaml:"application,omitempty"`
-	OpenAPI OpenAPI     `yaml:"openapi,omitempty"`
-	Storage Storage     `yaml:"storage,omitempty"`
+	Server   Server      `yaml:"server,omitempty"`
+	DB       DatabaseEnv `yaml:"database,omitempty"`
+	Security Security    `yamlL"sercurity,omiemtpy"`
+	JWT      JWT         `yaml:"jwt,omitempty"`
+	App      Application `yaml:"application,omitempty"`
+	OpenAPI  OpenAPI     `yaml:"openapi,omitempty"`
+	Storage  Storage     `yaml:"storage,omitempty"`
 }
 
 // DatabaseEnv holds dev and test database data
 type DatabaseEnv struct {
-	Dev Database `yaml:"dev,omitempty"`
+	Dev  Database `yaml:"dev,omitempty"`
 	Test Database `yaml:"test,omitempty"`
 }
 
@@ -51,6 +53,26 @@ type Server struct {
 	Port                string `yaml:"port,omitempty"`
 	ReadTimeoutSeconds  int    `yaml:"read_timeout_seconds,omitempty"`
 	WriteTimeoutSeconds int    `yaml:"write_timeout_seconds,omitempty"`
+}
+
+// Security holds data necessary for server security configuration
+type Security struct {
+	TLS            TLS                           `yaml:"tls,omitempty"`
+	Authenticators map[string]auth.Authenticator `yaml:"authenticators,omitemtpy"`
+}
+
+// TLS holds data necessary for server cerficate information
+// TLSConfig points to the cert files needed for HTTPS
+// type TLSConfig struct {
+// 	// CertFile is the path to the cert file
+// 	CertFile string
+// 	// KeyFile is the path to the key file
+// 	KeyFile string
+// }
+type TLS struct {
+	Enabled  bool   `yaml:"enabled,omitempty"`
+	Certfile string `yaml:"certfile,omitemtpy"`
+	Keyfile  string `yaml:"keyfile,omitemtpy"`
 }
 
 // JWT holds data necessery for JWT configuration
@@ -73,11 +95,11 @@ type OpenAPI struct {
 
 // Storage holds data necessary for backblaze configuration in track-server-api
 type Storage struct {
-	AccountId string `yaml:"account_id,omitempty"`
-	Key string `yaml:"key,omitempty"`
-	AuthEndpoint string `yaml:"auth_endpoint,omitempty"`
-	FileEndpoint string `yaml:"file_endpoint,omitempty"`
-	UploadEndpoint string `yaml:"upload_endpoint,omitempty"`
-	BucketId string `yaml:"bucket_id,omitempty"`
-	Timeout time.Duration `yaml:"timeout,omitempty"`
+	AccountId      string        `yaml:"account_id,omitempty"`
+	Key            string        `yaml:"key,omitempty"`
+	AuthEndpoint   string        `yaml:"auth_endpoint,omitempty"`
+	FileEndpoint   string        `yaml:"file_endpoint,omitempty"`
+	UploadEndpoint string        `yaml:"upload_endpoint,omitempty"`
+	BucketId       string        `yaml:"bucket_id,omitempty"`
+	Timeout        time.Duration `yaml:"timeout,omitempty"`
 }

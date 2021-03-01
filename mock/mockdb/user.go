@@ -2,7 +2,7 @@ package mockdb
 
 import (
 	"github.com/go-pg/pg/orm"
-	"user-api/internal/model"
+	"github.com/merefield/grpc-user-api/internal/model"
 )
 
 // User database mock

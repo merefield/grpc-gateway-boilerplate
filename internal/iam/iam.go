@@ -3,7 +3,7 @@ package iam
 import (
 	"context"
 
-	"user-api/internal/model"
+	"github.com/merefield/grpc-user-api/internal/model"
 
 	"github.com/rs/xid"
 
@@ -11,7 +11,7 @@ import (
 
 	"github.com/go-pg/pg"
 	"github.com/go-pg/pg/orm"
-	"user-api/rpc/iam"
+	"github.com/merefield/grpc-user-api/rpc/iam"
 )
 
 // New instantiates new IAM service

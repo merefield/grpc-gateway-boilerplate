@@ -13,6 +13,14 @@ database:
     log_queries: false
     timeout_seconds: 10
 
+security:
+  TLS:
+    enabled: true
+    certfile: /etc/letsencrypt/live/merefield.technology/fullchain.pem
+    keyfile: /etc/letsencrypt/live/merefield.technology/privkey.pem
+  Authenticators:
+    -
+      "testcode": selfsignedJwt
 jwt:
   secret: jwtsecret # Change this value
   duration_minutes: 15
